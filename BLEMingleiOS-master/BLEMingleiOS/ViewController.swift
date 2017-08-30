@@ -13,8 +13,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         bleMingle.startScan()
        
-        let priority = DispatchQueue.GlobalQueuePriority.default
-        DispatchQueue.global(priority: priority).async {
+        //let priority = DispatchQueue.GlobalQueuePriority.default
+       // DispatchQueue.global(priority: priority).async {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async
+            {
             while (true)
             {
                 let temp:String = self.bleMingle.lastString as String
